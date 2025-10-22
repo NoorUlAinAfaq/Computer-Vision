@@ -15,7 +15,7 @@ for y in range(h):
         if img_num == 5:
             is_red = r > 50 and r > g + 30 and r > b + 30 and g < 150 and b < 150
         elif img_num == 7:
-            is_red = r > 90 and r > 1.3 * g and r > 1.3 * b and g < 100 and b < 100
+            is_red = r > 110 and r > 1.5 * g and g < 120
         elif img_num in [1, 2, 3, 6, 8]:
             is_red = r > 1.65 * g and r > 1.65 * b
         elif img_num == 4:
