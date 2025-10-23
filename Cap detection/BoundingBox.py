@@ -18,10 +18,8 @@ for y in range(500):
             if y < ymin: ymin = y
             if y > ymax: ymax = y
 
-# Draw bounding box
 cv2.rectangle(image, (xmin, ymin), (xmax, ymax), (255, 255, 255), 2)
 
-# Show output
 cv2.imshow("Output", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
