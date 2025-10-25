@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 canvas = np.ones((500, 500, 3), dtype=np.uint8) * 255
-code = [2, 1, 3, 0]
+code = [2, 1, 3, 0,4,7,2,9,1,6,4,3]
 bar_width = 10
 max_height = 180
 start_x = 20
@@ -20,7 +20,22 @@ for idx, num in enumerate(code):
 
     
 
+decoded = []
+start_x = 20
 
+for i in range(len(code)):
+    bar_area = canvas[:, start_x:start_x + bar_width]
+
+    black_mask = np.all(bar_area == 0, axis = 2)
+    black_pixels = np.sum(black_mask) / bar_width
+
+    decoded_value = int((black_pixels - 20) / 40)
+    print(decoded_value)
+    decoded.append(decoded_value)
+
+    start_x += bar_width + 5
+
+print("Decoded values:", decoded)
 cv2.imshow("Output", canvas)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
